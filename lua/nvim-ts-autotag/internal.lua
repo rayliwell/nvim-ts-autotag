@@ -16,6 +16,7 @@ M.tbl_filetypes = {
     'htmldjango',
     'eruby',
     'templ',
+    'rust',
 }
 
 -- stylua: ignore
@@ -105,11 +106,24 @@ local TEMPL_TAG = {
     skip_tag_pattern = { "quoted_attribute_value", "tag_end" },
 }
 
+local RSTML_TAG = {
+    filetypes = { 'rust' },
+    start_tag_pattern = { 'open_tag' },
+    start_name_tag_pattern = { 'node_identifier' },
+    end_tag_pattern = { 'close_tag' },
+    end_name_tag_pattern = { 'node_identifier' },
+    close_tag_pattern = { 'ERROR' },
+    close_name_tag_pattern = { 'ERROR', 'node_identifier' },
+    element_tag = { 'element_node' },
+    skip_tag_pattern = { 'close_tag', 'node_attribute', 'block', 'node_identifier' },
+}
+
 local all_tag = {
     HBS_TAG,
     SVELTE_TAG,
     JSX_TAG,
     TEMPL_TAG,
+    RSTML_TAG,
 }
 M.enable_rename = true
 M.enable_close = true
