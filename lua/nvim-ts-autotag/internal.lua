@@ -112,10 +112,10 @@ local RSTML_TAG = {
     start_name_tag_pattern = { 'node_identifier' },
     end_tag_pattern = { 'close_tag' },
     end_name_tag_pattern = { 'node_identifier' },
-    close_tag_pattern = { 'ERROR' },
-    close_name_tag_pattern = { 'ERROR', 'node_identifier' },
+    close_tag_pattern = { 'close_tag' },
+    close_name_tag_pattern = { 'close_tag', 'node_identifier' },
     element_tag = { 'element_node' },
-    skip_tag_pattern = { 'close_tag', 'node_attribute', 'block', 'node_identifier' },
+    skip_tag_pattern = { 'close_tag', 'node_attribute', 'block' },
 }
 
 local all_tag = {
